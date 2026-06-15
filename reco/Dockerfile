@@ -11,7 +11,7 @@ COPY . .
 RUN chmod +x mvnw
 
 # Compila el proyecto y genera el JAR, sin correr tests
-RUN ./mvnw clean package -DskipTests
+RUN mvn clean package -DskipTests
 
 # Expone el puerto que usa Spring Boot (por defecto 8080)
 EXPOSE 8080
