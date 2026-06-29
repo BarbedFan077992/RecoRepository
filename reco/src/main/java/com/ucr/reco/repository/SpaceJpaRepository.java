@@ -12,4 +12,5 @@ public interface SpaceJpaRepository extends JpaRepository<Space, Integer> {
 
     Space getByName(String name);
 
+    Space findByName(String name);
 }

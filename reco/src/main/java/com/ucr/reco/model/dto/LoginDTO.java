@@ -4,7 +4,9 @@ package com.ucr.reco.model.dto;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
+
 public class LoginDTO {
+
     @Email(message = "Correo incorrecto")
     @NotBlank(message = "No se puede dejar el espacio del correo en blanco")
     private String email;

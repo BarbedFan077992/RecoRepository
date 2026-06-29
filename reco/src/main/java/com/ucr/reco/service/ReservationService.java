@@ -27,12 +27,11 @@ public class ReservationService {
     }
 
 
-
-    public List<Reservation> findAll(){
+    public List<Reservation> findAll() {
         return repository.findAll();
     }
 
-    public Reservation add(ReservationDTO reservation){
+    public Reservation add(ReservationDTO reservation) {
         Space space = spaceService.getById(reservation.getSpaceId());
         User user = userService.getByEmail(reservation.getEmail());
         Reservation reservationTemp = new Reservation();
@@ -43,8 +42,6 @@ public class ReservationService {
         reservationTemp.setStatus(Status.PENDING);
         return repository.save(reservationTemp);
     }
-
-
 
 
 }

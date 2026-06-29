@@ -51,12 +51,13 @@ public class UserService {
                 return null;
             }
         }
-        User userTemp=new User();
+        User userTemp = new User();//se crea un nuevo usuario vacío
         userTemp.setName(user.getName());
         userTemp.setEmail(user.getEmail());
         userTemp.setPassword(user.getPassword());
         userTemp.setRole(user.getRole());
-        return repository.save(userTemp);
+        //conforme se le agregan los atributos que tiene el DTO se rellena la información del usuario vacío
+        return repository.save(userTemp);//por último se retorna el usuario que se creó, dicho usuario contiene la información del usuario temporal
         //return "Proceso exitoso";
     }
 
@@ -82,8 +83,9 @@ public class UserService {
     }
 
     public User update(User user) {
-        User userExits = repository.getByEmail(user.getEmail());
-        if (userExits != null) {
+        User userExits = repository.getByEmail(user.getEmail());//se vrifica que sí exista por el email, en algunos casos ID
+        //y se registra en el nuevo usuario temporal
+        if (userExits != null) {//luego se verifica que NINGUN atributo esté vacío
             if (user.getName() != null) {
                 userExits.setName(user.getName());
             }
@@ -121,7 +123,7 @@ public class UserService {
         }
     }
 
-    public User getByEmail(String email){
+    public User getByEmail(String email) {
         /*
         User user = repository.getByEmail(email);
         if (user != null) {

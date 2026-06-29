@@ -5,16 +5,16 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="tb-reservations")
+@Table(name = "tb-reservations")
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @ManyToOne
-    @JoinColumn(name="user_email")
+    @ManyToOne//Necesito entender esto
+    @JoinColumn(name = "user_email") //y esto
     private User user;
     @ManyToOne
-    @JoinColumn(name="space_id")
+    @JoinColumn(name = "space_id")
     private Space space;
     private LocalDateTime startDate;
     private LocalDateTime finalDate;
